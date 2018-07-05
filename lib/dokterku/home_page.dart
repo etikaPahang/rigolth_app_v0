@@ -365,7 +365,7 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
               child: i==0?
               _buildListTitle('Daftar Rumah Sakit','Menampilan daftar dokter berdasarkan rumahsakit')
                   :
-              RSContainDoctorsCard(rss: _dummyRS)
+              RSContainDoctorsCard(rs: _dummyRS[i-1])
           );
         },
       )

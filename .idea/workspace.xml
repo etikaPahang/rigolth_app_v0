@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19f039be-a829-4a70-8b4a-d6237f30083a" name="Default" comment="initial rs list">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/models/RS.dart" />
+    <list default="true" id="19f039be-a829-4a70-8b4a-d6237f30083a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/lib/components/components.dart" afterPath="$PROJECT_DIR$/lib/components/components.dart" />
       <change beforePath="$PROJECT_DIR$/lib/dokterku/home_page.dart" afterPath="$PROJECT_DIR$/lib/dokterku/home_page.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" afterPath="$PROJECT_DIR$/lib/main.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/models/doctor.dart" afterPath="$PROJECT_DIR$/lib/models/doctor.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/page_login.dart" afterPath="$PROJECT_DIR$/lib/page_login.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/page_splash.dart" afterPath="$PROJECT_DIR$/lib/page_splash.dart" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" afterPath="$PROJECT_DIR$/pubspec.yaml" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" afterPath="$PROJECT_DIR$/test/widget_test.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/models/RS.dart" afterPath="$PROJECT_DIR$/lib/models/RS.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -39,7 +33,7 @@
       <file leaf-file-name="page_login.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/page_login.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-187">
               <caret line="1" column="47" lean-forward="false" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -60,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_page.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home_page.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/dokterku/home_page.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="60" column="29" lean-forward="true" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+            <state relative-caret-position="113">
+              <caret line="367" column="51" lean-forward="false" selection-start-line="367" selection-start-column="51" selection-end-line="367" selection-end-column="51" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -72,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="components.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="components.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/components/components.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="91" column="31" lean-forward="false" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="31" />
+            <state relative-caret-position="204">
+              <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -114,8 +108,8 @@
       <file leaf-file-name="RS.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/models/RS.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="0">
+              <caret line="0" column="49" lean-forward="false" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -150,8 +144,8 @@
       <find>menam</find>
       <find>_focusNodeSearch</find>
       <find>_build</find>
-      <find>assets</find>
       <find>name</find>
+      <find>assets</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,13 +161,13 @@
       <list>
         <option value="$PROJECT_DIR$/lib/models/doctor.dart" />
         <option value="$PROJECT_DIR$/lib/models/RS.java" />
-        <option value="$PROJECT_DIR$/lib/models/RS.dart" />
-        <option value="$PROJECT_DIR$/lib/dokterku/home_page.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/page_login.dart" />
         <option value="$PROJECT_DIR$/lib/page_splash.dart" />
         <option value="$PROJECT_DIR$/test/widget_test.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/models/RS.dart" />
+        <option value="$PROJECT_DIR$/lib/dokterku/home_page.dart" />
         <option value="$PROJECT_DIR$/lib/components/components.dart" />
       </list>
     </option>
@@ -374,6 +368,14 @@
       <option name="presentableId" value="Default" />
       <updated>1530717668112</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial rs list">
+      <created>1530760926311</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1530760926311</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -466,14 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/RS.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/models/doctor.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -487,16 +481,6 @@
         <state relative-caret-position="17">
           <caret line="1" column="54" lean-forward="false" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/page_login.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="47" lean-forward="false" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -531,20 +515,38 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/components/components.dart">
+    <entry file="file://$PROJECT_DIR$/lib/page_login.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="91" column="31" lean-forward="false" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="31" />
+        <state relative-caret-position="-187">
+          <caret line="1" column="47" lean-forward="false" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/RS.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="49" lean-forward="false" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/dokterku/home_page.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="60" column="29" lean-forward="true" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+        <state relative-caret-position="113">
+          <caret line="367" column="51" lean-forward="false" selection-start-line="367" selection-start-column="51" selection-end-line="367" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/components/components.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
