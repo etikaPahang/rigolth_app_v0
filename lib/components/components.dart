@@ -1,4 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:rigolth_app_v0/models/RS.dart';
+
+
+class RSContainDoctorsCard extends StatelessWidget {
+  final List<RS> rss;
+  RSContainDoctorsCard({this.rss});
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      borderRadius: BorderRadius.circular(4.0),
+      elevation: 0.5,
+      child: Container(
+        child: Stack(
+          children: <Widget>[
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Image(
+                  image: AssetImage('assets/dummyrs.png'),
+                  width: double.infinity,
+                  height: 90.0,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
+                ),
+                Container(
+                  child: Container(
+                    height: 108.0,
+                  ),
+                )
+              ],
+            ),
+            Container(
+              height: 100.0,
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[],
+                  ),
+                  Row(
+                    children: <Widget>[],
+                  ),
+                  Expanded(
+
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: rss.length,
+                      itemBuilder: (context, i){
+                        return Container(
+
+                        );
+                      },
+
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        )
+      ),
+    );
+  }
+}
 
 class DoctorCard extends StatelessWidget {
   final name;
@@ -13,7 +76,6 @@ class DoctorCard extends StatelessWidget {
       elevation: 0.0,
       borderRadius: BorderRadius.circular(4.0),
       child: Container(
-        padding: EdgeInsets.only(bottom: 0.0),
         child: Column(
           children: <Widget>[
             Container(
@@ -116,4 +178,5 @@ class DoctorCard extends StatelessWidget {
     );
   }
 }
+
 

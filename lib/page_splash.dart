@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:rogolth_app_v0/page_login.dart';
+import 'package:rigolth_app_v0/page_login.dart';
 
 class SplashPage extends StatefulWidget {
   @override

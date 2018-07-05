@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rogolth_app_v0/models/doctor.dart';
-import 'package:rogolth_app_v0/components/components.dart';
+import 'package:rigolth_app_v0/models/doctor.dart';
+import 'package:rigolth_app_v0/models/RS.dart';
+import 'package:rigolth_app_v0/components/components.dart';
 
 enum TabFilter {Terdekat, RumahSakit, Spesialis}
 
@@ -18,13 +19,13 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
 
   List<Doctor> _dummyDoctors;
 
+  List<RS> _dummyRS;
+
   TabController _tabControllerTampilan;
 
   TabController _tabControllerFilter;
 
   TextEditingController _fieldSearchController;
-
-  FocusNode _focusNodeSearch;
 
 
   @override
@@ -76,6 +77,25 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
         experience: '15 Tahun',
         specialist: 'Mana saya tahu'
     ));
+    _dummyRS = List();
+    _dummyRS.add(RS(
+        name: 'R.S.U Haji Surabaya',
+        doctors: _dummyDoctors,
+        specialistCount: 11,
+        rate: 4
+    ));
+    _dummyRS.add(RS(
+        name: 'R.S.U Haji Surabaya',
+        doctors: _dummyDoctors,
+        specialistCount: 11,
+        rate: 4
+    ));
+    _dummyRS.add(RS(
+        name: 'R.S.U Haji Surabaya',
+        doctors: _dummyDoctors,
+        specialistCount: 11,
+        rate: 4
+    ));
     _tabControllerTampilan = TabController(
         vsync: this,
         length: 2,
@@ -97,8 +117,6 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
         }
       });
     });
-    _fieldSearchController = TextEditingController();
-    _focusNodeSearch = FocusNode();
   }
 
 
@@ -296,8 +314,9 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
                 controller: _tabControllerFilter,
                 children: <Widget>[
                   _buildListDoctorTerdekat(),
+                 _buildListDoctorRumahSakit(),
                   Container(),
-                  Container()
+                 // Container()
                 ],
               )
           )
@@ -318,7 +337,7 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
                     :
                 EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
                 child: i==0?
-                _buildListTitle()
+                _buildListTitle('Daftar Dokter','Menampilan daftar dokter terdekat')
                     :
                 DoctorCard(
                   name: _dummyDoctors[i-1].name,
@@ -333,20 +352,40 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
     );
   }
 
-  Widget _buildListTitle(){
+  Widget _buildListDoctorRumahSakit(){
+    return Container(
+      child: ListView.builder(
+        padding: EdgeInsets.only(top: 10.0),
+        itemCount: _dummyRS.length+1,
+        itemBuilder: (context, i){
+          return Padding(
+              padding: i==0?EdgeInsets.only(left: 20.0, right: 20.0, bottom: 0.0)
+                  :
+              EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+              child: i==0?
+              _buildListTitle('Daftar Rumah Sakit','Menampilan daftar dokter berdasarkan rumahsakit')
+                  :
+              RSContainDoctorsCard(rss: _dummyRS)
+          );
+        },
+      )
+    );
+  }
+
+  Widget _buildListTitle(String title, String subtitle){
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget >[
           Text(
-            'Daftar Dokter',
+            title,
             style: TextStyle(
               fontSize: 18.0,
               color: Colors.black54,
             ),
           ),
           Text(
-            'Menampilkan daftar dokter terdekat',
+            subtitle,
             style: TextStyle(
                 fontSize: 12.0,
                 color: Colors.black54

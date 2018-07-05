@@ -34,6 +34,7 @@ flutter:
     - assets/dokterku_rumahsakit_blue.png
     - assets/sort_bottom_menu_2.png
     - assets/search_bottom_menu_2.png
+    - assets/dummyrs.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

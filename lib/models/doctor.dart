@@ -7,3 +7,4 @@ class Doctor{
   final location;
   Doctor({this.name, this.specialist, this.practice, this.experience, this.location});
 }
+

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rogolth_app_v0/page_home.dart';
+import 'package:rigolth_app_v0/page_home.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
