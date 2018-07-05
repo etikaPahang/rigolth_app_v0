@@ -37,7 +37,7 @@ class RSContainDoctorsCard extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        
+''
                       )
                     ],
                   ),
