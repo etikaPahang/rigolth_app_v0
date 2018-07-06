@@ -8,7 +8,7 @@ class RSContainDoctorsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(4.0),
+      borderRadius: BorderRadius.circular(12.0),
       elevation: 0.5,
       child: Container(
         child: Stack(
@@ -31,21 +31,39 @@ class RSContainDoctorsCard extends StatelessWidget {
               ],
             ),
             Container(
-              height: 100.0,
+              height: 198.0,
               child: Column(
                 children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    child: Row(
+                      children: <Widget>[
+                        Text(
+                            rs.name
+                        ),
+                        Expanded(
+                          child: Container(),
+                        ),
+                        Text(''
+                            'Lihat Detail'
+                        )
+                      ],
+                    ),
+                  ),
                   Row(
                     children: <Widget>[
                       Text(
-''
+                          rs.doctors.length.toString()
+                      ),
+                      Text(
+                        rs.specialistCount.toString()
+                      ),
+                      Text(
+                        rs.rate.toString()
                       )
                     ],
                   ),
-                  Row(
-                    children: <Widget>[],
-                  ),
                   Expanded(
-
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: rs.doctors.length,
