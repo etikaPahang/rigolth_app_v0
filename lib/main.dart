@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rigolth_app_v0/dokterku/home_page.dart';
-//import 'package:rigolth_app_v0/page_login.dart';
-//import 'package:rigolth_app_v0/page_splash.dart';
-//import 'package:rigolth_app_v0/page_register.dart';
+import 'package:rigolth_app_v0/dokterku/rs_page.dart';
+import 'package:rigolth_app_v0/dummydata/dummy_data.dart';
 
 
 void main()=>runApp(
@@ -19,6 +18,9 @@ class RigolthApp extends StatelessWidget {
         fontFamily: 'Nunito'
       ),
       home: DokterkuHomePage(),
+//      home: RSPage(
+//        rs: dummyRS[0]
+//      ),//DokterkuHomePage(),
       //home: LoginPage(),
       debugShowCheckedModeBanner: false,
 

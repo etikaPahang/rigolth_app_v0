@@ -35,6 +35,14 @@ flutter:
     - assets/sort_bottom_menu_2.png
     - assets/search_bottom_menu_2.png
     - assets/dummyrs.png
+    - assets/dokterku_rumahsakit_jumlahdokter.png
+    - assets/dokterku_rumahsakit_jumlahspesialis.png
+    - assets/no_fill_star.png
+    - assets/filled_star.png
+    - assets/back_taskbar.png
+    - assets/dokterku_rumahsakit_jumlahdokter.png
+    - assets/dokterku_rumahsakit_lokasirumahsakit.png
+    - assets/dokterku_rumahsakit_jumlahspesialis.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

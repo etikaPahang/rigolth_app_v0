@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rigolth_app_v0/dokterku/rs_page.dart';
 import 'package:rigolth_app_v0/models/doctor.dart';
 import 'package:rigolth_app_v0/models/RS.dart';
 import 'package:rigolth_app_v0/components/components.dart';
+import 'package:rigolth_app_v0/dummydata/dummy_data.dart';
 
 enum TabFilter {Terdekat, RumahSakit, Spesialis}
 
@@ -17,10 +19,6 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
 
   bool _searchActive;
 
-  List<Doctor> _dummyDoctors;
-
-  List<RS> _dummyRS;
-
   TabController _tabControllerTampilan;
 
   TabController _tabControllerFilter;
@@ -34,68 +32,7 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
     super.initState();
     _searchActive = false;
     _tabFilter = TabFilter.Terdekat;
-    _dummyDoctors = List();
-    _dummyDoctors.add(Doctor(
-        name: 'Etika Pahang K',
-        location: 'Pasuruam',
-        practice: 'RS Negeri Pasuruan',
-        experience: '15 Tahun',
-        specialist: 'Mana saya tahu'
-    ));
-    _dummyDoctors.add(Doctor(
-        name: 'Etika Pahang K',
-        location: 'Pasuruam',
-        practice: 'RS Negeri Pasuruan',
-        experience: '15 Tahun',
-        specialist: 'Mana saya tahu'
-    ));
-    _dummyDoctors.add(Doctor(
-        name: 'Etika Pahang K',
-        location: 'Pasuruam',
-        practice: 'RS Negeri Pasuruan',
-        experience: '15 Tahun',
-        specialist: 'Mana saya tahu'
-    ));
-    _dummyDoctors.add(Doctor(
-        name: 'Etika Pahang K',
-        location: 'Pasuruam',
-        practice: 'RS Negeri Pasuruan',
-        experience: '15 Tahun',
-        specialist: 'Mana saya tahu'
-    ));
-    _dummyDoctors.add(Doctor(
-        name: 'Etika Pahang K',
-        location: 'Pasuruam',
-        practice: 'RS Negeri Pasuruan',
-        experience: '15 Tahun',
-        specialist: 'Mana saya tahu'
-    ));
-    _dummyDoctors.add(Doctor(
-        name: 'Etika Pahang J',
-        location: 'Pasuruam',
-        practice: 'RS Negeri Pasuruan',
-        experience: '15 Tahun',
-        specialist: 'Mana saya tahu'
-    ));
-    _dummyRS = List();
-    _dummyRS.add(RS(
-        name: 'R.S.U Haji Surabaya',
-        doctors: _dummyDoctors,
-        specialistCount: 11,
-        rate: 4
-    ));
-    _dummyRS.add(RS(
-        name: 'R.S.U Haji Surabaya',
-        doctors: _dummyDoctors,
-        specialistCount: 11,
-        rate: 4
-    ));
-    _dummyRS.add(RS(
-        name: 'R.S.U Haji Surabaya',
-        doctors: _dummyDoctors,
-        specialistCount: 11,
-        rate: 4
-    ));
+
     _tabControllerTampilan = TabController(
         vsync: this,
         length: 2,
@@ -142,7 +79,7 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
                 children: <Widget>[
                   Container(
                       width: double.infinity,
-                      height: 45.0,
+                      height: 50.0,
                       padding: EdgeInsets.only(top: 10.0, right: 20.0, left: 20.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4.0),
@@ -313,9 +250,9 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
               child: TabBarView(
                 controller: _tabControllerFilter,
                 children: <Widget>[
-                  _buildListDoctorTerdekat(),
-                 _buildListDoctorRumahSakit(),
-                  Container(),
+                  _buildListDoctorTerdekat(dummyDoctors),
+                 _buildListDoctorRumahSakit(dummyRS),
+                  _buildListDoctorSpecialist(dummyDoctors),
                  // Container()
                 ],
               )
@@ -325,12 +262,83 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
     );
   }
 
-  Widget _buildListDoctorTerdekat(){
+  Widget _buildListDoctorSpecialist(List<Doctor> doctors){
+    List<String> specialists = List<String>();
+    for(int i = 0; i<doctors.length; i++){
+      specialists.add(doctors[i].specialist);
+    }
     return Container(
-      //padding: EdgeInsets.symmetric(horizontal:20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          _buildSpecialistList(specialists),
+          _buildListDoctorSpecialistList(doctors)
+        ],
+      ),
+    );
+  }
+
+  Widget _buildListDoctorSpecialistList(List<Doctor> doctors) {
+    return Expanded(
+      child: ListView.builder(
+        itemCount: doctors.length+1,
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        itemBuilder: (context, i){
+          return Container(
+            padding: i==0?null:i==1?EdgeInsets.only(bottom: 4.0):EdgeInsets.symmetric(vertical: 4.0),
+            child: i==0?_buildListTitle('Daftar Spesialis', 'Menampilkan rekomendasi spesialisasi')
+                :SpecialistContainDoctorCard(doctors: doctors,),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildSpecialistList(List<String> specialists){
+    return Container(
+      height: 49.0,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: specialists.length,
+        itemBuilder: (contextt, i){
+          return Container(
+            padding: i==0?
+                      EdgeInsets.only(top: 12.0, bottom: 12.0, left: 16.0, right: 6.0)
+                      :
+                    i==specialists.length-1?
+                    EdgeInsets.only(top: 12.0, bottom: 12.0, left: 6.0, right: 16.0)
+                    :
+                    EdgeInsets.symmetric(horizontal: 6.0, vertical: 12.0),
+            child: _buildSpecialistLabel(specialists[i]),
+          );
+        }
+      )
+    );
+  }
+
+  Widget _buildSpecialistLabel(String specialist) {
+    return Material(
+      borderRadius: BorderRadius.circular(16.0),
+      color: const Color(0xFF45D2DF),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
+        child: Text(
+          specialist.toUpperCase(),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 12.0
+          ),
+        ),
+      )
+    );
+  }
+
+  Widget _buildListDoctorTerdekat(List<Doctor> doctors){
+    return Container(
       child: ListView.builder(
           padding: EdgeInsets.only(top: 10.0),
-          itemCount: _dummyDoctors.length+1,
+          itemCount: doctors.length+1,
           itemBuilder: (context, i){
             return Padding(
                 padding: i==0?EdgeInsets.only(left: 20.0, right: 20.0, bottom: 0.0)
@@ -340,11 +348,11 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
                 _buildListTitle('Daftar Dokter','Menampilan daftar dokter terdekat')
                     :
                 DoctorCard(
-                  name: _dummyDoctors[i-1].name,
-                  experience: _dummyDoctors[i-1].experience,
-                  location: _dummyDoctors[i-1].location,
-                  practice: _dummyDoctors[i-1].practice,
-                  specialist: _dummyDoctors[i-1].specialist,
+                  name: doctors[i-1].name,
+                  experience: doctors[i-1].experience,
+                  location: doctors[i-1].location,
+                  practice: doctors[i-1].practice,
+                  specialist: doctors[i-1].specialist,
                 )
             );
           }
@@ -352,11 +360,11 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
     );
   }
 
-  Widget _buildListDoctorRumahSakit(){
+  Widget _buildListDoctorRumahSakit(List<RS> RSs){
     return Container(
       child: ListView.builder(
         padding: EdgeInsets.only(top: 10.0),
-        itemCount: _dummyRS.length+1,
+        itemCount: RSs.length+1,
         itemBuilder: (context, i){
           return Padding(
               padding: i==0?EdgeInsets.only(left: 20.0, right: 20.0, bottom: 0.0)
@@ -365,7 +373,13 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
               child: i==0?
               _buildListTitle('Daftar Rumah Sakit','Menampilan daftar dokter berdasarkan rumahsakit')
                   :
-              RSContainDoctorsCard(rs: _dummyRS[i-1])
+              RSContainDoctorsCard(rs: RSs[i-1], onPressed: (){
+                var route = new MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                  RSPage(rs: RSs[i-1]),
+                );
+                Navigator.of(context).push(route);
+              })
           );
         },
       )
