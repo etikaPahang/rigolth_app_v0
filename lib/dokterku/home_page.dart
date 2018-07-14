@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rigolth_app_v0/dokterku/rs_page.dart';
+import 'package:rigolth_app_v0/dokterku/specialist_page.dart';
 import 'package:rigolth_app_v0/models/doctor.dart';
 import 'package:rigolth_app_v0/models/RS.dart';
 import 'package:rigolth_app_v0/components/components.dart';
@@ -56,6 +57,14 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
     });
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _tabControllerTampilan.dispose();
+    _tabControllerFilter.dispose();
+    _fieldSearchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,36 +95,67 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
                         child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                           color: Colors.white,
-                          child: Row(
+                          child: _searchActive?
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                GestureDetector(
+                                  child: Icon(
+                                    Icons.arrow_back,
+                                    color: Colors.black54,
+                                  ),
+                                  onTap: (){
+                                    setState(() {
+                                      _searchActive = false;
+                                    });
+                                  },
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 0.0),
+                                    child: TextField(
+                                      controller: _fieldSearchController,
+                                      autofocus: true,
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
+                            :
+                          Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              _searchActive?Container():Container(
+                              Container(
                                   padding: EdgeInsets.only(top: 0.0),
                                   child: Icon(
                                       Icons.menu
                                   )
                               ),
                               Expanded(
-                                child: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
-                                  child: TextField(
-//                                    focusNode: _focusNodeSearch,
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        color: Colors.black45
-                                    ),
-                                    controller: _fieldSearchController,
-                                    decoration: InputDecoration(
-                                        hintText: 'Cari Dokter',
-                                        hintStyle: TextStyle(
-                                          fontSize: 15.0,
-                                        )
-
+                                child: GestureDetector(
+                                  onTap: (){
+                                    setState(() {
+                                      _searchActive = true;
+                                    });
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 28.0),
+                                    child: Text(
+                                      'Cari Dokter',
+                                      style: TextStyle(
+                                          fontSize: 17.0,
+                                          color: Colors.black26
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                              _searchActive?Container():Container(
+                              Container(
                                 padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 10.0),
                                 child: Image(
                                   image: AssetImage('assets/search_bottom_menu_2.png'),
@@ -186,17 +226,6 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
       ),
     );
   }
-
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _tabControllerTampilan.dispose();
-    _tabControllerFilter.dispose();
-    _fieldSearchController.dispose();
-    super.dispose();
-  }
-
 
   Widget _buildTampilanList() {
     return Container(
@@ -288,7 +317,14 @@ class _DokterkuHomePageState extends State<DokterkuHomePage>
           return Container(
             padding: i==0?null:i==1?EdgeInsets.only(bottom: 4.0):EdgeInsets.symmetric(vertical: 4.0),
             child: i==0?_buildListTitle('Daftar Spesialis', 'Menampilkan rekomendasi spesialisasi')
-                :SpecialistContainDoctorCard(doctors: doctors,),
+                :SpecialistContainDoctorCard(doctors: doctors,
+            onTapDetail: (){
+              var route = new MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    SpecialistPage(doctors: doctors,),
+              );
+              Navigator.of(context).push(route);
+            },),
           );
         },
       ),

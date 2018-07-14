@@ -10,7 +10,6 @@ class RSPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Container(
         child: Column(
           children: <Widget>[

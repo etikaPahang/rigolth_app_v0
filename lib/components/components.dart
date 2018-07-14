@@ -4,8 +4,10 @@ import 'package:rigolth_app_v0/models/doctor.dart';
 
 class SpecialistContainDoctorCard extends StatelessWidget {
 
-  List<Doctor> doctors;
-  SpecialistContainDoctorCard({this.doctors});
+  final List<Doctor> doctors;
+  final Function onTapDetail;
+  SpecialistContainDoctorCard({this.doctors, this.onTapDetail});
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -29,7 +31,7 @@ class SpecialistContainDoctorCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
+                  GestureDetector(
                     child: Text(
                       'Selengkapnya',
                       style: TextStyle(
@@ -37,6 +39,7 @@ class SpecialistContainDoctorCard extends StatelessWidget {
                         fontSize: 10.0
                       ),
                     ),
+                    onTap: onTapDetail,
                   )
                 ],
               ),
@@ -159,6 +162,8 @@ class RSContainDoctorsCard extends StatelessWidget {
                   height: 100.0,
                   fit: BoxFit.cover,
                   alignment: Alignment.topCenter,
+                  color: Colors.grey,
+                  colorBlendMode: BlendMode.dstATop,
                 ),
                 Container(
                   child: Container(
@@ -173,10 +178,9 @@ class RSContainDoctorsCard extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Container(
-                    //color: Colors.green,
-                    padding: EdgeInsets.only(top: 14.0, left: 16.0, right: 16.0, bottom: 2.0),
+                    padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0, top: 14.0),
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Text(
                             rs.name,
@@ -188,16 +192,23 @@ class RSContainDoctorsCard extends StatelessWidget {
                         Expanded(
                           child: Container(),
                         ),
-                        FlatButton(
-                          child: Text(
-                              'Lihat Detail',
-                            style: TextStyle(
-                                color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 8.0
+                        GestureDetector(
+                          child: Container(
+                            height: 20.0,
+                            width: 60.0,
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                  'Lihat Detail',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 8.0
+                                ),
+                              ),
                             ),
                           ),
-                          onPressed: onPressed,
+                          onTap: onPressed,
                         )
                       ],
                     ),
